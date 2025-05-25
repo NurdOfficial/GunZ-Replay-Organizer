@@ -52,6 +52,7 @@ Renamed files will look like:
 
 - The script creates and updates a `config.json` file for your settings.
 - If you want to build a standalone `.exe`, use [PyInstaller](https://pyinstaller.org/) (see below).
+- Primarily tested on FGunZ, unsure if file format is different on other PServers.
 
 ---
 
@@ -72,7 +73,8 @@ Renamed files will look like:
 ## Future Planned
 
 - Adding map/lobby names to file name (May rely on Discord Integration from pserver.)
-
+- Ensuring Compatibility with other PServers. (Primarily tested on FGunZ)
+- Add Customability to File Format names.
 
 ---
 
