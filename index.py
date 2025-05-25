@@ -13,7 +13,9 @@ MAX_WAIT_SECONDS = 180
 monitoring_thread = None
 
 # Update RENAMED_PATTERN to match your actual renamed filename format
-RENAMED_PATTERN = re.compile(r"^\d{3}_.+\[[^\[\]]+\]_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}\.gzr$")
+RENAMED_PATTERN = re.compile(
+    r"^[^\[\]]+\[\d{3}\]_[^_]+_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}\.gzr$"
+)
 
 
 #Frame initialization
@@ -118,6 +120,7 @@ def select_folder():
 
 def set_identifier():
     global FILE_IDENTIFIER
+    global counter
     try:
         identifier = simpledialog.askstring("Set Identifier", "Enter file identifier:")
         if identifier:
@@ -134,7 +137,7 @@ def get_next_filename(timestamp, gamemode):
     try:
         gamemode_clean = gamemode.replace("[", "").replace("]", "")
         while True:
-            filename = f"{counter:03d}_{FILE_IDENTIFIER}[{gamemode_clean}]_{timestamp}{FILE_EXTENSION}"
+            filename = f"{FILE_IDENTIFIER}[{counter:03d}]_{gamemode_clean}_{timestamp}{FILE_EXTENSION}"
             if not os.path.exists(os.path.join(WATCHED_FOLDER, filename)):
                 return filename
             counter += 1

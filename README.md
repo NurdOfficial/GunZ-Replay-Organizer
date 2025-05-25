@@ -75,7 +75,6 @@ Renamed files will look like:
 - Adding map/lobby names to file name (May rely on Discord Integration from pserver.)
 - Ensuring Compatibility with other PServers. (Primarily tested on FGunZ)
 - Add Customability to File Format names.
-- Redo File format to have Identifier in front.
 
 ---
 
