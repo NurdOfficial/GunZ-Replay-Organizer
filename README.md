@@ -68,6 +68,12 @@ Renamed files will look like:
    ```
 3. The `.exe` will be in the `dist` folder.
 
+---
+
+## Known Bugs
+
+- Fix properly unqueue'ing files that take too long to finalize.
+- Make sure changing Identifier name resets Counter
 
 ---
 ## Future Planned
@@ -75,6 +81,7 @@ Renamed files will look like:
 - Adding map/lobby names to file name (May rely on Discord Integration from pserver.)
 - Ensuring Compatibility with other PServers. (Primarily tested on FGunZ)
 - Add Customability to File Format names.
+- Add optional Discord Bot Functionality
 
 ---
 
