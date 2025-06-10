@@ -15,7 +15,7 @@ FILE_EXTENSION = ".gzr"
 MAX_WAIT_SECONDS = 180
 
 RENAMED_PATTERN = re.compile(
-    r"^[^()_]+\(\d{3}\)_[A-Za-z0-9]+\[\d{3}\]_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}\.gzr$"
+    r"^[^()_]+\(\d{3}\)_[A-Za-z0-9]+(\d{3})?_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}\.gzr$"
 )
 
 # --- PYGAME SETUP ---
@@ -177,8 +177,8 @@ def save_config():
 def get_next_filename(timestamp, gamemode):
     global counter
     try:
-        # Extract round info if present in gamemode (e.g., "TDM[3]")
-        gamemode_clean = gamemode  # keep brackets for round info
+        # Remove brackets from round info if present
+        gamemode_clean = re.sub(r"\[|\]", "", gamemode)
         filename = f"{FILE_IDENTIFIER}({counter:03d})_{gamemode_clean}_{timestamp}{FILE_EXTENSION}"
         while os.path.exists(os.path.join(WATCHED_FOLDER, filename)):
             counter += 1
